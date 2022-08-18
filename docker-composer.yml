@@ -1,0 +1,15 @@
+version: "3"
+services:
+  cloudreve:
+    image: cloudreve/cloudreve
+    container_name: cloudreve
+    stdin_open: true
+    tty: true
+    restart: always
+    ports:
+      - 443:5212
+    volumes:
+      - ./cloudreve/config:/cloudreve/config
+      - ./cloudreve/uploads:/cloudreve/uploads
+      - ./cloudreve/avatar:/cloudreve/avatar
+    privileged: true
