@@ -1,7 +1,7 @@
 version: "3"
 services:
   cloudreve:
-    image: cloudreve/cloudreve
+    image: xavierniu/cloudreve
     container_name: cloudreve
     stdin_open: true
     tty: true
