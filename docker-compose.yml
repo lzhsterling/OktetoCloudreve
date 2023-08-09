@@ -2,7 +2,7 @@ version: "3"
 services:
   cloudreve:
     image: xavierniu/cloudreve
-    container_name: owncloudreve
+    container_name: cloudreve
     stdin_open: true
     tty: true
     restart: always
