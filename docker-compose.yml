@@ -7,7 +7,7 @@ services:
     tty: true
     restart: always
     ports:
-      - 443:6212
+      - 443:5212
     volumes:
       - ./cloudreve/config:/cloudreve/config
       - ./cloudreve/uploads:/cloudreve/uploads
