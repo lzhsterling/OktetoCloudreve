@@ -9,8 +9,7 @@ services:
     ports:
       - 5212:5212
     volumes:
-      - /root/cloudreve
-      - ./cloudreve/config:/cloudreve/config
-      - ./cloudreve/uploads:/cloudreve/uploads
-      - ./cloudreve/avatar:/cloudreve/avatar
+      - zihao-cloudreve:/cloudreve/config
+      - zihao-cloudreve:/cloudreve/uploads
+      - zihao-cloudreve:/cloudreve/avatar
     privileged: true
