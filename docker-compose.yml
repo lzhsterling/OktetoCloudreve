@@ -9,12 +9,8 @@ services:
     ports:
       - 5212:5212
     volumes:
-      - zihao-cloudreve:/cloudreve/config
-      - zihao-cloudreve:/cloudreve/uploads
-      - zihao-cloudreve:/cloudreve/avatar
+      - cloudreve:/cloudreve/config
+      - cloudreve:/cloudreve/uploads
+      - cloudreve:/cloudreve/avatar
     privileged: true
-volumes:
-  zihao-cloudreve:
-    driver_opts:
-      size: 900Mi
-    
+
