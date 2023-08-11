@@ -13,3 +13,8 @@ services:
       - zihao-cloudreve:/cloudreve/uploads
       - zihao-cloudreve:/cloudreve/avatar
     privileged: true
+volumes:
+  zihao-cloudreve:
+    driver_opts:
+      size: 900Mi
+    
