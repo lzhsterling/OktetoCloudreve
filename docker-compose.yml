@@ -13,4 +13,8 @@ services:
       - cloudreve:/cloudreve/uploads
       - cloudreve:/cloudreve/avatar
     privileged: true
-
+volumes:
+  cloudreve:
+    driver_opts:
+      size: 900Mi
+    
