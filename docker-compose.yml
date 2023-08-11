@@ -1,20 +1,34 @@
-version: "3"
+version: "3.8"
 services:
   cloudreve:
-    image: cloudreve/cloudreve
     container_name: cloudreve
-    stdin_open: true
-    tty: true
-    restart: always
+    image: cloudreve/cloudreve:latest
+    restart: unless-stopped
     ports:
-      - 5212:5212
+      - "5212:5212"
     volumes:
-      - cloudreve:/cloudreve/config
-      - cloudreve:/cloudreve/uploads
-      - cloudreve:/cloudreve/avatar
-    privileged: true
+      - temp_data:/data
+      - ./cloudreve/uploads:/cloudreve/uploads
+      - ./cloudreve/conf.ini:/cloudreve/conf.ini
+      - ./cloudreve/cloudreve.db:/cloudreve/cloudreve.db
+      - ./cloudreve/avatar:/cloudreve/avatar
+    depends_on:
+      - aria2
+  aria2:
+    container_name: aria2
+    image: p3terx/aria2-pro
+    restart: unless-stopped
+    environment:
+      - RPC_SECRET=sunwuyuan
+      - RPC_PORT=6800
+    volumes:
+      - ./aria2/config:/config
+      - temp_data:/data
 volumes:
-  cloudreve:
+  temp_data:
+    size: 2Gi
+    driver: local
     driver_opts:
-      size: 900Mi
-    
+      type: none
+      device: $PWD/data
+      o: bind
