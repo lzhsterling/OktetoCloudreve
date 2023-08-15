@@ -8,10 +8,10 @@ services:
       - "5212:5212"
     volumes:
       - temp_data:/data
-      - ./cloudreve/uploads:/cloudreve/uploads
-      - ./cloudreve/conf.ini:/cloudreve/conf.ini
-      - ./cloudreve/cloudreve.db:/cloudreve/cloudreve.db
-      - ./cloudreve/avatar:/cloudreve/avatar
+      - cloudreve/uploads:/cloudreve/uploads
+      - cloudreve/conf.ini:/cloudreve/conf.ini
+      - cloudreve/cloudreve.db:/cloudreve/cloudreve.db
+      - cloudreve/avatar:/cloudreve/avatar
     depends_on:
       - aria2
   aria2:
@@ -19,14 +19,13 @@ services:
     image: p3terx/aria2-pro
     restart: unless-stopped
     environment:
-      - RPC_SECRET=sunwuyuan
+      - RPC_SECRET=your_aria_rpc_token
       - RPC_PORT=6800
     volumes:
       - ./aria2/config:/config
       - temp_data:/data
 volumes:
   temp_data:
-    size: 2Gi
     driver: local
     driver_opts:
       type: none
