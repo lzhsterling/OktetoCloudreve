@@ -8,7 +8,7 @@ services:
       - "5212:5212"
     volumes:
       - temp_data:/data
-      - shezhi:/cloudreve/conf.ini
+      - shezhi2:/cloudreve/conf.ini
       - shezhi:/cloudreve/cloudreve.db
     depends_on:
       - aria2
@@ -32,7 +32,15 @@ volumes:
       o: bind
 
   shezhi:
-    size: 200Mi
+    size: 50Mi
+    driver: local
+    driver_opts:
+      type: none
+      device: $PWD/data
+      o: bind
+
+  shezhi2:
+    size: 50Mi
     driver: local
     driver_opts:
       type: none
